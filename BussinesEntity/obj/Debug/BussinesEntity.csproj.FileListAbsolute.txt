@@ -1,0 +1,6 @@
+C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesEntity\bin\Debug\BussinesEntity.dll
+C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesEntity\bin\Debug\BussinesEntity.pdb
+C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.csprojAssemblyReference.cache
+C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.csproj.CoreCompileInputs.cache
+C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.dll
+C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.pdb
