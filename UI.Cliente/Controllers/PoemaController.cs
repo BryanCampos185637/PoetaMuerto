@@ -19,7 +19,7 @@ namespace UI.Cliente.Controllers
         [HttpGet]
         public JsonResult poemas()
         {
-            return Json(bl.lstPoema(), JsonRequestBehavior.AllowGet);
+            return Json(bl.lstPoema().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
         }
     }
 }

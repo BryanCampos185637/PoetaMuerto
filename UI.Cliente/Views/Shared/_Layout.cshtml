@@ -7,12 +7,19 @@
     <link href="~/Content/materialize/css/materialize.min.css" rel="stylesheet" />
     <link href="~/Content/fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~/Content/misestilos.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <a href="#" data-target="menu-side" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
+    <nav id="navMenu">
+        <div class="nav-wrapper">
+            <div class="nav-mobile">
+                <a href="#" data-target="menu-side" class="sidenav-trigger">
+                    <i class="fas fa-list"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="contenidoSidevar">
         <ul id="menu-side" class="sidenav">
             <li>
                 <div class="user-view">

@@ -1,0 +1,17 @@
+﻿.card {
+    box-shadow: 2px 2px 5px #999 !important;
+    border: 5px;
+}
+
+.activator {
+    height: auto;
+    width: auto;
+}
+
+#navMenu {
+    position: fixed;
+    z-index: 100;
+}
+#contenidoSidevar {
+    padding: 30px;
+}
