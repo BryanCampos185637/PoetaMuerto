@@ -6,27 +6,49 @@
     <title>Poeta Muerto @DateTime.Now.Year</title>
     <link href="~/Content/materialize/css/materialize.min.css" rel="stylesheet" />
     <link href="~/Content/fontawesome-free-5.14.0-web/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo right">Logo</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="~/Poema/Index">Poemas</a></li>
-                <li><a href="~/Historia/Index">Mi historia</a></li>
-                <li><a href="~/PoetaMuerto/Index">Acerca de mi</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container">
+        <a href="#" data-target="menu-side" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul id="menu-side" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="~/Content/img/15219-foggy-pier-at-night-2560x1600-photography-wallpaper.jpg" />
+                    </div>
+                    <a href="#">
+                        <img src="~/Content/img/autor.jpg" class="circle" alt="autor" />
+                    </a>
+                    <a href="#">
+                        <span class="name white-text">Josue Cardona</span>
+                    </a>
+                    <a href="#">
+                        <span class="email white-text">josuecardona07@hotmail.com</span>
+                    </a>
+                </div>
+            </li>
+            <li><a href="~/Poema/Index">Poemas</a></li>
+            <li><div class="divider"></div></li>
+            <li><a href="~/Historia/Index">Mi historia</a></li>
+            <li><div class="divider"></div></li>
+            <li><a href="~/PoetaMuerto/Index">Acerca de mi</a></li>
+        </ul>
+    </div>
+
+
     <div class="row">
         @RenderBody()
     </div>
-    <footer class="page-footer">
-        <center>
-            <p>@DateTime.Now.Year - Poeta Muerto&copy;</p>
-        </center>
-    </footer>
     <script src="~/Scripts/jquery-2.1.1.min.js"></script>
-    <script src="~/Scripts/materialize/materialize.min.js"></script>
+    <script src="~/Content/materialize/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems,);
+        });
+    </script>
 </body>
 </html>
