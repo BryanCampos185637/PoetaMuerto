@@ -1,0 +1,9 @@
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\bin\Release\DataAccessLogic.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\bin\Release\DataAccessLogic.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\bin\Release\BussinesEntity.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\bin\Release\BussinesEntity.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\obj\Release\DataAccessLogic.csprojAssemblyReference.cache
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\obj\Release\DataAccessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\obj\Release\DataAccessLogic.csproj.CopyComplete
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\obj\Release\DataAccessLogic.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\DataAccessLogic\obj\Release\DataAccessLogic.pdb

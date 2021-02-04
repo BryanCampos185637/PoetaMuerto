@@ -18,7 +18,7 @@ function guardar() {
             cambiarVista();
         });
     } else {
-        alert('Complete los campos marcados');
+        messeges('warning','Debes completar los campos marcados');
     }
 }
 function editar(id) {
@@ -26,11 +26,12 @@ function editar(id) {
     llenarFormulario('/poema/obtener?id=' + id, ['Idpoema', 'Titulo','Verso','Imagen']);
 }
 function eliminar(id) {
-    if (confirm('Estas seguro que deseas eliminar este poema?') == 1) {
-        eliminarRegistro('/poema/eliminar?id=' + id, 'Poema eliminado', function () {
-            llamarTabla();
+    messegeConfirm('Eliminar poema!', 'Estas seguro que deseas eliminar este poema?',
+        'warning', 'Si, eliminar!', function () {
+            eliminarRegistro('/poema/eliminar?id=' + id, 'Poema eliminado', function () {
+                llamarTabla();
+            });
         });
-    }
 }
 document.getElementById('txtFileFoto').onchange = function () {
     var file = document.getElementById("txtFileFoto").files[0];//capturamos el archivo

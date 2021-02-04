@@ -1,7 +1,7 @@
 ﻿function pintarTabla(url, cabecera, propiedades, llavePrimaria, idDiv = 'myTable', eliminar = true, editar = true) {
     $.get(url, function (data) {
         var totalColumnas = cabecera.length; var html = '';
-        html += '<table class="table table-bordered table-hover">'
+        html += '<table class="table table-bordered table-hover table-responsive">'
         html += '<thead class="thead-dark">'
         html += '<tr>'
         for (var i = 0; i < cabecera.length; i++) {
@@ -22,7 +22,7 @@
                     var propiedadActual = propiedades[j];
                     html += '<td>' + filaActual[propiedadActual] + '</td>';
                 }
-                html += '<td>'
+                html += '<td width="15%">'
                 if (eliminar) {
                     html += '<button class="btn-sm btn-danger" onclick="eliminar(' + filaActual[llavePrimaria] + ')">eliminar</button> '
                 }
@@ -51,12 +51,12 @@ function enviarDatosAlControlador(url, datos, mensajeExito = 'Exito', mensajeRep
         data: datos,
         success: function (rpt) {
             if (rpt == 'ok') {
-                alert(mensajeExito);
+                messeges('success', mensajeExito);
                 collback();
             } else if (rpt == 'repetido') {
-                alert(mensajeRepetido)
+                messeges('warning', mensajeRepetido);
             } else {
-                alert(rpt);
+                messeges('error', rpt);
             }
         }
     });
@@ -90,10 +90,10 @@ function limpiarFormulario() {
 function eliminarRegistro(url, mensajeExito = 'Exito', collback) {
     $.get(url, function (rpt) {
         if (rpt == 'ok') {
-            alert(mensajeExito);
+            messeges('success',mensajeExito);
             collback();
         } else {
-            alert(rpt);
+            messeges('error',rpt);
         }
     })
 }
@@ -129,4 +129,30 @@ function validarSiEsNumero(input) {
         input.style.borderColor = '#ccc';
     }
     return rpt;
+}
+function messeges(icons = 'success', titles = 'Exito') {
+    Swal.fire({
+        position: 'center',
+        icon: icons,
+        title: titles,
+        showConfirmButton: false,
+        timer: 2000
+    })
+}
+
+function messegeConfirm(titulo = 'Elminiar', texto = '¿Estas seguro que deseas eliminar el registro?',
+    icono ='warning',tituloBoton = 'Si, eliminar!', collback) {
+    Swal.fire({
+        title: titulo,
+        text: texto,
+        icon: icono,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: tituloBoton
+    }).then((result) => {
+        if (result.isConfirmed) {
+            collback();
+        }
+    })
 }

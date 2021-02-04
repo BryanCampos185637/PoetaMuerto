@@ -20,7 +20,7 @@ namespace UI.Autor.Controllers
         }
         [HttpPost]
         public string guardar(Poema poema)
-        {
+        { 
             poema.Bhabilitado = "A";
             return bl.guardar(poema);
         }

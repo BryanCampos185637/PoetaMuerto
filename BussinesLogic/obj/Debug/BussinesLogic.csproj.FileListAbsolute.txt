@@ -9,3 +9,14 @@ C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLog
 C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.csproj.CopyComplete
 C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.dll
 C:\Users\Bryan J. Campos\Desktop\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\bin\Debug\BussinesLogic.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\bin\Debug\BussinesLogic.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\bin\Debug\BussinesEntity.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\bin\Debug\DataAccessLogic.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\bin\Debug\BussinesEntity.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\bin\Debug\DataAccessLogic.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.csprojAssemblyReference.cache
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.csproj.CoreCompileInputs.cache
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.csproj.CopyComplete
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesLogic\obj\Debug\BussinesLogic.pdb
