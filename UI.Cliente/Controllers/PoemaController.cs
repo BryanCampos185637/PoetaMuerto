@@ -21,5 +21,19 @@ namespace UI.Cliente.Controllers
         {
             return Json(bl.lstPoema().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public string darMegusta(MeGusta meGusta)
+        {
+            MeGustaBL bl = new MeGustaBL();
+            meGusta.Ipcliente = Request.UserHostAddress;
+            return bl.darMegusta(meGusta);
+        }
+
+        [HttpGet]
+        public JsonResult contarLike(Int64 Idpoema)
+        {
+            MeGustaBL bl = new MeGustaBL();
+            return Json(bl.ContarMeGusta(Idpoema),JsonRequestBehavior.AllowGet);
+        }
     }
 }

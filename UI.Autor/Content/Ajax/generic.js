@@ -1,5 +1,5 @@
 ﻿function pintarTabla(url, cabecera, propiedades, llavePrimaria, idDiv = 'myTable', eliminar = true, editar = true) {
-    $.get(url, function (data) {
+    fetch(url).then(data => data.json()).then(data => {
         var totalColumnas = cabecera.length; var html = '';
         html += '<table class="table table-bordered table-hover table-responsive">'
         html += '<thead class="thead-dark">'

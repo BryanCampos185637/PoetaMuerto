@@ -20,6 +20,10 @@ namespace BussinesLogic
         {
             return dal.lstPoema();
         }
+        public List<Poema> poemasPopulares()
+        {
+            return dal.PoemasPopulares();
+        }
         public string eliminar(Int64 id)
         {
             int result = dal.eliminar(id);

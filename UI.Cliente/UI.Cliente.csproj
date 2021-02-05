@@ -164,12 +164,14 @@
     <Content Include="Scripts\efectos.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\poemas.js" />
+    <Content Include="Scripts\poemaspopulares.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\PoemaController.cs" />
+    <Compile Include="Controllers\PoemaPopularController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,6 +200,7 @@
     <Content Include="Views\Poema\Index.cshtml" />
     <Content Include="Views\PoetaMuerto\Index.cshtml" />
     <Content Include="Views\PayPal\Index.cshtml" />
+    <Content Include="Views\PoemaPopular\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

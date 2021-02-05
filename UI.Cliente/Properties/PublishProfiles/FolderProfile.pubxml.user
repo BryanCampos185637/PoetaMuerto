@@ -4,32 +4,32 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\Bryan J. Campos\Desktop\Nueva carpeta</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Bryan J. Campos\Desktop\WebSite1</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/BussinesEntity.dll">
-      <publishTime>02/03/2021 20:00:49</publishTime>
+      <publishTime>02/04/2021 10:02:20</publishTime>
     </File>
     <File Include="bin/BussinesEntity.pdb">
-      <publishTime>02/03/2021 20:00:49</publishTime>
+      <publishTime>02/04/2021 10:02:20</publishTime>
     </File>
     <File Include="bin/BussinesLogic.dll">
-      <publishTime>02/03/2021 20:00:50</publishTime>
+      <publishTime>02/04/2021 10:06:43</publishTime>
     </File>
     <File Include="bin/BussinesLogic.pdb">
-      <publishTime>02/03/2021 20:00:50</publishTime>
+      <publishTime>02/04/2021 10:06:43</publishTime>
     </File>
     <File Include="bin/DataAccessLogic.dll">
-      <publishTime>02/03/2021 20:00:50</publishTime>
+      <publishTime>02/04/2021 10:06:43</publishTime>
     </File>
     <File Include="bin/DataAccessLogic.pdb">
-      <publishTime>02/03/2021 20:00:50</publishTime>
+      <publishTime>02/04/2021 10:06:43</publishTime>
     </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
       <publishTime>11/28/2018 13:04:36</publishTime>
     </File>
     <File Include="bin/es/System.Web.Mvc.resources.dll">
-      <publishTime>11/28/2018 13:00:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="bin/es/System.Web.Razor.resources.dll">
       <publishTime>11/28/2018 13:00:22</publishTime>
@@ -215,10 +215,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/UI.Cliente.dll">
-      <publishTime>02/03/2021 20:00:50</publishTime>
+      <publishTime>02/04/2021 10:06:43</publishTime>
     </File>
     <File Include="bin/UI.Cliente.pdb">
-      <publishTime>02/03/2021 20:00:50</publishTime>
+      <publishTime>02/04/2021 10:06:43</publishTime>
     </File>
     <File Include="Content/fontawesome-free-5.14.0-web/css/all.css">
       <publishTime>10/02/2020 11:57:31</publishTime>
@@ -476,31 +476,37 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/31/2021 16:53:35</publishTime>
     </File>
     <File Include="Content/misestilos.css">
-      <publishTime>02/03/2021 14:21:36</publishTime>
+      <publishTime>02/04/2021 09:37:18</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>01/28/2021 18:26:57</publishTime>
     </File>
     <File Include="Scripts/efectos.js">
-      <publishTime>02/03/2021 15:08:59</publishTime>
+      <publishTime>02/03/2021 20:18:22</publishTime>
     </File>
     <File Include="Scripts/jquery-2.1.1.min.js">
       <publishTime>01/28/2021 18:34:30</publishTime>
     </File>
     <File Include="Scripts/poemas.js">
-      <publishTime>02/03/2021 14:44:03</publishTime>
+      <publishTime>02/04/2021 09:14:03</publishTime>
+    </File>
+    <File Include="Scripts/poemaspopulares.js">
+      <publishTime>02/04/2021 10:00:32</publishTime>
     </File>
     <File Include="Views/PayPal/Index.cshtml">
-      <publishTime>02/03/2021 15:08:30</publishTime>
+      <publishTime>02/04/2021 07:37:41</publishTime>
     </File>
     <File Include="Views/Poema/Index.cshtml">
       <publishTime>02/03/2021 19:52:26</publishTime>
     </File>
+    <File Include="Views/PoemaPopular/Index.cshtml">
+      <publishTime>02/04/2021 09:58:37</publishTime>
+    </File>
     <File Include="Views/PoetaMuerto/Index.cshtml">
-      <publishTime>01/28/2021 19:09:34</publishTime>
+      <publishTime>02/04/2021 07:38:12</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/03/2021 14:31:15</publishTime>
+      <publishTime>02/04/2021 09:37:18</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>01/28/2021 18:26:57</publishTime>

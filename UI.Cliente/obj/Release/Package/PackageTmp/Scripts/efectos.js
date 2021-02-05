@@ -18,8 +18,11 @@ $(document).ready(function () {
             $('#ir-arriba').slideUp(300);
         }
     });
+});
+
+function desaparecerCirculoCarga() {
     //desaparecer la carga
     var contenedor = document.getElementById('contenedor-carga');
     contenedor.style.visibility = 'hidden';
     contenedor.style.opacity = '0';
-});
+}

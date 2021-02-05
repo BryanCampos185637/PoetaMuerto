@@ -2,15 +2,18 @@
     llamarPoemas();
 }
 function llamarPoemas() {
-    $.get('/poema/poemas', function (data) {
+    fetch('/poema/poemas').then(data => data.json()).then(data => {
         var html = '';
-        $.each(data, function (key, item) {
-            var urlImagen = '';
-            if (item.Imagen == null || item.Imagen == '') {
+        for (var i = 0; i < data.length; i++) {
+            //verificamos si la imagenen no viene vacia
+            var dataActual = data[i]; var urlImagen = '';
+            if (dataActual['Imagen'] == null || dataActual['Imagen'] == '') {
                 urlImagen = '/Content/img/J.png';
             } else {
-                urlImagen = item.Imagen
+                urlImagen = dataActual['Imagen']
             }
+            //pintamos la card con sus respectivos datos
+            var idGenerado = 'Like' + dataActual['Idpoema'];
             html += `
                 <div class="col s12 m6 l4">
                 <div class="card">
@@ -18,18 +21,52 @@ function llamarPoemas() {
                 <img class="activator card-img" src="${urlImagen}">
                 </div>
                 <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4"><i>${item.Titulo}</i><i class="material-icons right">more_vert</i></span>
+                <span class="card-title activator grey-text text-darken-4"><i>${dataActual['Titulo']}</i><i class="material-icons right">more_vert</i></span>
                 </div>
                 <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i>${item.Titulo}</i><i class="material-icons right">close</i></span>
-                <i>${item.Verso}</i>
+                <span class="card-title grey-text text-darken-4"><i>${dataActual['Titulo']}</i><i class="material-icons right">close</i></span>
+                <i>${dataActual['Verso']}</i>
                 <div style="flex-wrap:wrap;">
                 <a href="/PayPal/Index" class="waves-effect waves-light btn"><i class="fab fa-paypal"></i> Apoyar</a>
+                <button id="${idGenerado}" class="waves-effect waves-light btn" onclick="addLike(${dataActual['Idpoema']})"></button>
                 </div>
                 </div>
                 </div>
                 </div>`
-        })
+
+            //contamos los like que tiene la imagen
+            var Idpoema = dataActual['Idpoema'];
+            contarLikes(Idpoema);
+        }
+        //pintamos las cards
         document.getElementById('poemas').innerHTML = html;
+    });
+    //hacemos que desaparezca el efecto de carga
+    desaparecerCirculoCarga();
+}
+function addLike(id) {
+    var obj = {
+        Idpoema: id,
+        Ipcliente: null
+    }
+    fetch('/poema/darMegusta', {headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(obj)
+    }).then(res => res.text()).then(res => {
+        if (res == 'ok') {
+            contarLikes(id);
+        } else {
+            alert(res);
+            }
+        });
+}
+
+function contarLikes(id) {
+    fetch('/poema/contarLike?Idpoema=' + id).then(data => data.json()).then(data => {
+        var totalLike = data;
+        var button = document.getElementById('Like' + id);
+        button.innerHTML = '<i class="fas fa-thumbs-up"></i> ' + totalLike;
     });
 }

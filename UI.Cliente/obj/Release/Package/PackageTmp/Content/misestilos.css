@@ -52,14 +52,14 @@ body{
 
 /*Estilos del div de carga*/
 #contenedor-carga {
-    background-color: rgba(250,240,245,0.9);
+    background-color: #bdc3c7;
     height: 100%;
     width: 100%;
     position: fixed;
     -webkit-transition: all 1s ease;
     -o-transition: all 1s ease;
     transition: all 1s ease;
-    z-index:10000;
+    z-index: 10000;
 }
 #div-carga {
     border: 15px solid #ccc;
@@ -75,9 +75,9 @@ body{
     bottom: 0;
     margin: auto;
     /*animacion*/
-    -webkit-animation: girar 1.5s linear infinite;
-    -o-animation: girar 1.5s linear infinite;
-    animation: girar 1.5s linear infinite;
+    -webkit-animation: girar 1s linear infinite;
+    -o-animation: girar 1s linear infinite;
+    animation: girar 1s linear infinite;
 }
 @keyframes girar{
     from {
