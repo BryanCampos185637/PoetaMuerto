@@ -25,7 +25,7 @@ function llamarPoemas() {
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i>${dataActual['Titulo']}</i><i class="material-icons right">close</i></span>
-                <i>${dataActual['Verso']}</i>
+                <p>${dataActual['Verso']}</p>
                 <div style="flex-wrap:wrap;">
                 <a href="/PayPal/Index" class="waves-effect waves-light btn"><i class="fab fa-paypal"></i> Apoyar</a>
                 <button id="${idGenerado}" class="waves-effect waves-light btn" onclick="addLike(${dataActual['Idpoema']})"></button>
@@ -40,9 +40,9 @@ function llamarPoemas() {
         }
         //pintamos las cards
         document.getElementById('poemas').innerHTML = html;
+        //hacemos que desaparezca el efecto de carga
+        desaparecerCirculoCarga();
     });
-    //hacemos que desaparezca el efecto de carga
-    desaparecerCirculoCarga();
 }
 function addLike(id) {
     var obj = {

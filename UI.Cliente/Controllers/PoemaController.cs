@@ -25,7 +25,7 @@ namespace UI.Cliente.Controllers
         public string darMegusta(MeGusta meGusta)
         {
             MeGustaBL bl = new MeGustaBL();
-            meGusta.Ipcliente = Request.UserHostAddress;
+            meGusta.Ipcliente = Request.UserHostAddress;//capturamos la ip del cliente
             return bl.darMegusta(meGusta);
         }
 

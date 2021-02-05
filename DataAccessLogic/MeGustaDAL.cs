@@ -7,7 +7,7 @@ namespace DataAccessLogic
 {
     public class MeGustaDAL
     {
-
+        //metodo para poder contar los like
         public string contarLike(Int64 Idpoema)
         {
             try
@@ -19,9 +19,9 @@ namespace DataAccessLogic
                     SqlCommand command = DBCommun.crearCommand(query, con);
                     IDataReader reader = command.ExecuteReader();
                     Int64 contador = 0;
-                    while (reader.Read())
+                    while (reader.Read())//recorremos la lista
                     {
-                        contador++;
+                        contador++;//cada vez que pase se aumenta el contador
                     }
                     return contador.ToString();
                 }
@@ -31,7 +31,7 @@ namespace DataAccessLogic
                 return e.Message;
             }
         }
-
+        //metodo que verifica que el mismo cliente no de mas de un like
         public int verificarFuente(Int64 Idpoema, string Ipcliente)
         {
             using (var con = DBCommun.ConexionSQL())
@@ -40,12 +40,13 @@ namespace DataAccessLogic
                 string query = string.Format(consulta, Idpoema, Ipcliente);
                 SqlCommand command = DBCommun.crearCommand(query, con);
                 IDataReader reader = command.ExecuteReader();
-                if (reader.Read())
+                if (reader.Read())//si encuentra un resultado retornamos 1
                     return 1;
-                else
+                else//de lo contrario retornamos 0
                     return 0;
             }
         }
+        //metodo que nos sirve para dar like
         public string darLike(MeGusta meGusta)
         {
             try
@@ -53,13 +54,16 @@ namespace DataAccessLogic
                 string query = "";
                 using (var con = DBCommun.ConexionSQL())
                 {
+                    //validamos si el cliente ya a dado like
                     if (verificarFuente(meGusta.Idpoema, meGusta.Ipcliente) == 0) 
                     {
+                        //si es 0 entonces se agrega el like
                         string consulta = "insert into MeGusta(Idpoema, Ipcliente)values({0},'{1}')";
                         query = string.Format(consulta, meGusta.Idpoema, meGusta.Ipcliente);
                     }
                     else
                     {
+                        //si no se elimina el like
                         string consulta = "delete from MeGusta where Idpoema={0} and Ipcliente='{1}'";
                         query = string.Format(consulta, meGusta.Idpoema, meGusta.Ipcliente);
                     }

@@ -9,7 +9,7 @@ namespace DataAccessLogic
         private static string cadenaConexionHosting = "Data Source=SQL5102.site4now.net;Initial Catalog=DB_A6EEFE_PoetaMuerto;User Id=DB_A6EEFE_PoetaMuerto_admin;Password=Cardona07Aguilar";
         public static SqlConnection ConexionSQL()
         {
-            SqlConnection conexion = new SqlConnection(cadenaConexionHosting); //creamos una conexion
+            SqlConnection conexion = new SqlConnection(cadenaConexionLocal); //creamos una conexion
             conexion.Open();//abrimos la conexion
             return conexion;
         }

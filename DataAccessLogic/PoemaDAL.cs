@@ -11,18 +11,20 @@ namespace DataAccessLogic
         string consulta = "", formatoConsulta = "";
         SqlCommand command;
         List<Poema> lst= new List<Poema>();
+        //metodo para guardar la información
         public int guardar(Poema poema)
         {
             try
             {
                 using (var con = DBCommun.ConexionSQL())
                 {
+                    //si el id viene en 0 es un agregar
                     if (poema.Idpoema == 0)
                     {
                         consulta = "insert into Poema(Titulo,Verso,Imagen,Bhabilitado)values('{0}','{1}','{2}','{3}')";
                         formatoConsulta = string.Format(consulta, poema.Titulo, poema.Verso, poema.Imagen, poema.Bhabilitado);
                     }
-                    else
+                    else//si no es un actualizar
                     {
                         consulta = "update Poema set Titulo='{0}',Verso='{1}',Imagen='{2}' where Idpoema={3}";
                         formatoConsulta = string.Format(consulta, poema.Titulo, poema.Verso, poema.Imagen, poema.Idpoema);
@@ -36,6 +38,7 @@ namespace DataAccessLogic
                 return 0;
             }
         }
+        //lista todos los poemas que esten habilitados
         public List<Poema> lstPoema()
         {
             try
@@ -58,6 +61,7 @@ namespace DataAccessLogic
                 return null;
             }
         }
+        //obtiene un poema en especifico
         public Poema ObtenerPorId(Int64 id)
         {
             try
@@ -85,6 +89,7 @@ namespace DataAccessLogic
                 return null;
             }
         }
+        //metodo para eliminar poemas segun el id
         public int eliminar(Int64 id)
         {
             try
@@ -102,7 +107,7 @@ namespace DataAccessLogic
                 return 0;
             }
         }
-
+        //lista todos aquellos poemas que tengan mas de 9 like
         public List<Poema> PoemasPopulares()
         {
             try
@@ -113,13 +118,11 @@ namespace DataAccessLogic
                     consulta = "select * from Poema where Bhabilitado='A'";
                     command = DBCommun.crearCommand(consulta, con);
                     IDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    while (reader.Read())//recorremos la lista
                     {
-                        var id = reader.GetInt64(0);
-                        if (Convert.ToInt32(meGustaDAL.contarLike(id)) >= 3)
-                        {
+                        //verificamos cuantos like tiene el poema actual
+                        if (Convert.ToInt32(meGustaDAL.contarLike(reader.GetInt64(0))) >= 9)//si es mayor o igual a 9 entonces lo agregamos
                             lst.Add(new Poema(reader.GetInt64(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
-                        }
                     }
                     return lst;
                 }

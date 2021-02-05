@@ -4,17 +4,18 @@
 function llamarPoemas() {
     fetch('/poemapopular/listarPoemasPopulares').then(data => data.json()).then(data => {
         var html = '';
-        for (var i = 0; i < data.length; i++) {
-            //verificamos si la imagenen no viene vacia
-            var dataActual = data[i]; var urlImagen = '';
-            if (dataActual['Imagen'] == null || dataActual['Imagen'] == '') {
-                urlImagen = '/Content/img/J.png';
-            } else {
-                urlImagen = dataActual['Imagen']
-            }
-            //pintamos la card con sus respectivos datos
-            var idGenerado = 'Like' + dataActual['Idpoema'];
-            html += `
+        if (data.length > 0) {
+            for (var i = 0; i < data.length; i++) {
+                //verificamos si la imagenen no viene vacia
+                var dataActual = data[i]; var urlImagen = '';
+                if (dataActual['Imagen'] == null || dataActual['Imagen'] == '') {
+                    urlImagen = '/Content/img/J.png';
+                } else {
+                    urlImagen = dataActual['Imagen']
+                }
+                //pintamos la card con sus respectivos datos
+                var idGenerado = 'Like' + dataActual['Idpoema'];
+                html += `
                 <div class="col s12 m6 l4">
                 <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -34,9 +35,14 @@ function llamarPoemas() {
                 </div>
                 </div>`
 
-            //contamos los like que tiene la imagen
-            var Idpoema = dataActual['Idpoema'];
-            contarLikes(Idpoema);
+                //contamos los like que tiene la imagen
+                var Idpoema = dataActual['Idpoema'];
+                contarLikes(Idpoema);
+            }
+        } else {
+            html += '<div class="col s12 m12 l12">'
+            html += '<center><p>Actualmente no hay ningun poema popular</p></center>'
+            html += '</div">'
         }
         //pintamos las cards
         document.getElementById('poemas').innerHTML = html;
@@ -63,7 +69,6 @@ function addLike(id) {
         }
     });
 }
-
 function contarLikes(id) {
     fetch('/poema/contarLike?Idpoema=' + id).then(data => data.json()).then(data => {
         var totalLike = data;
