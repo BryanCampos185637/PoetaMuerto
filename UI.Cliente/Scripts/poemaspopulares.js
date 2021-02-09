@@ -28,7 +28,7 @@ function llamarPoemas() {
                 <span class="card-title grey-text text-darken-4"><i>${dataActual['Titulo']}</i><i class="material-icons right">close</i></span>
                 <i>${dataActual['Verso']}</i>
                 <div style="flex-wrap:wrap;">
-                <a href="/PayPal/Index" class="waves-effect waves-light btn"><i class="fab fa-paypal"></i> Apoyar</a>
+                <a href="#" onclick="apoyarPoeta()" class="waves-effect waves-light btn"><i class="fab fa-paypal"></i> Apoyar</a>
                 <button id="${idGenerado}" class="waves-effect waves-light btn" onclick="addLike(${dataActual['Idpoema']})"></button>
                 </div>
                 </div>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BussinesEntity;
 using DataAccessLogic;
 
@@ -18,6 +19,10 @@ namespace BussinesLogic
                 return "ok";
             else
                 return resp;
+        }
+        public List<MeGusta> listar()
+        {
+            return dal.listar();
         }
     }
 }

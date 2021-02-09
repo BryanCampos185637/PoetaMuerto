@@ -1,5 +1,6 @@
 ﻿using BussinesEntity;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -7,6 +8,22 @@ namespace DataAccessLogic
 {
     public class MeGustaDAL
     {
+        //ver los like
+        public List<MeGusta> listar()
+        {
+            List<MeGusta> lst = new List<MeGusta>();
+            using(var con = DBCommun.ConexionSQL())
+            {
+                var query = "select * from MeGusta";
+                var command = DBCommun.crearCommand(query, con);
+                IDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    lst.Add(new MeGusta(reader.GetInt64(0), reader.GetInt64(1), reader.GetString(2)));
+                }
+            }
+            return lst;
+        }
         //metodo para poder contar los like
         public string contarLike(Int64 Idpoema)
         {

@@ -26,3 +26,18 @@ function desaparecerCirculoCarga() {
     contenedor.style.visibility = 'hidden';
     contenedor.style.opacity = '0';
 }
+function apoyarPoeta() {
+    Swal.fire({
+        title: 'Apoyar a Josue Cardona',
+        text: 'Seras redirigido a la página de PayPal para efectuar tu ayuda.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok, ir a PayPal!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            alert('OK');
+        }
+    })
+}

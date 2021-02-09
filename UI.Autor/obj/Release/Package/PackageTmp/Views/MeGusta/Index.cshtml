@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Me gusta</h2>
+<div class="row" id="divtabla">
+    
+</div>
+
+<script src="~/Content/Ajax/generic.js"></script>
+<script>
+    window.onload = function () {
+        llamarTabla();
+    }
+    function llamarTabla() {
+        pintarTabla('/megusta/listar', ['ID', 'ID-POEMA', 'IP-CLIENTE'],
+            ['Idmegusta', 'Idpoema', 'Ipcliente'], 'Idmegusta', 'divtabla', true, true);
+    }
+</script>
