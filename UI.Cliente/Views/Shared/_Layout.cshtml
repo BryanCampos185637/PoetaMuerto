@@ -60,6 +60,13 @@
         </div>
         @RenderBody()
     </div>
+    <div style="display:none">
+        @*@Html.ActionLink("boton", "pagarConPaypal", "Poema", new { area = "" }, new { @id="botonPagarPaypal" })*@
+        <form method="post" action="~/Poema/pagarConPaypal">
+            <input type="text" name="dinero" id="dinero" value="0.23"/>
+            <button type="submit" id="botonPagarPaypal"></button>
+        </form>
+    </div>
     <script src="~/Scripts/jquery-2.1.1.min.js"></script>
     <script src="~/Content/materialize/js/materialize.min.js"></script>
     <script src="~/Scripts/efectos.js"></script>

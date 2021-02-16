@@ -44,23 +44,27 @@ function llamarPoemas() {
         desaparecerCirculoCarga();
     });
 }
+
 function addLike(id) {
-    var obj = {
+    //objeto
+    var MeGusta = {
         Idpoema: id,
         Ipcliente: null
     }
-    fetch('/poema/darMegusta', {headers: {
-            'Content-Type': 'application/json'
+    //peticion
+    fetch("/poema/addlike", {
+        headers: {
+            "Content-Type": "application/json"
         },
-        method: 'POST',
-        body: JSON.stringify(obj)
+        method: "POST",
+        body: JSON.stringify(MeGusta)
     }).then(res => res.text()).then(res => {
-        if (res == 'ok') {
+        if (res == "ok") {
             contarLikes(id);
         } else {
-            alert(res);
-            }
-        });
+            console.log('error: ' + res)
+        }
+    });
 }
 
 function contarLikes(id) {

@@ -71,26 +71,29 @@ namespace DataAccessLogic
                 string query = "";
                 using (var con = DBCommun.ConexionSQL())
                 {
+                    SqlCommand command = null;
                     //validamos si el cliente ya a dado like
                     if (verificarFuente(meGusta.Idpoema, meGusta.Ipcliente) == 0) 
                     {
                         //si es 0 entonces se agrega el like
-                        string consulta = "insert into MeGusta(Idpoema, Ipcliente)values({0},'{1}')";
-                        query = string.Format(consulta, meGusta.Idpoema, meGusta.Ipcliente);
+                        string consulta = "GuardarMeGusta";
+                        command = DBCommun.crearCommand(consulta, con, true);
+                        object[,] parametros= { { "Idpoema", meGusta.Idmegusta },{ "Ipcliente", meGusta.Ipcliente } };
+                        command = DBCommun.crearParameters(command, parametros);
                     }
                     else
                     {
                         //si no se elimina el like
                         string consulta = "delete from MeGusta where Idpoema={0} and Ipcliente='{1}'";
                         query = string.Format(consulta, meGusta.Idpoema, meGusta.Ipcliente);
+                        command = DBCommun.crearCommand(query, con, false);
                     }
-                    var command = DBCommun.crearCommand(query, con);
                     return command.ExecuteNonQuery().ToString();
                 }
             }
             catch(Exception e)
             {
-                return e.Message;
+                return "0";
             }
         }
     }

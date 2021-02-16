@@ -20,6 +20,10 @@ namespace BussinesLogic
         {
             return dal.lstPoema();
         }
+        public List<Poema> FiltrarPoema(Poema poema)
+        {
+                return dal.FiltrarPoemas(poema);
+        }
         public List<Poema> poemasPopulares()
         {
             return dal.PoemasPopulares();

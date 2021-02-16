@@ -23,13 +23,20 @@ namespace DataAccessLogic
                     {
                         consulta = "insert into Poema(Titulo,Verso,Imagen,Bhabilitado)values('{0}','{1}','{2}','{3}')";
                         formatoConsulta = string.Format(consulta, poema.Titulo, poema.Verso, poema.Imagen, poema.Bhabilitado);
+                        command = DBCommun.crearCommand(formatoConsulta, con, false);
                     }
                     else//si no es un actualizar
                     {
-                        consulta = "update Poema set Titulo='{0}',Verso='{1}',Imagen='{2}' where Idpoema={3}";
-                        formatoConsulta = string.Format(consulta, poema.Titulo, poema.Verso, poema.Imagen, poema.Idpoema);
+                        consulta = "ActualizarPoema";
+                        command = DBCommun.crearCommand(consulta, con, true);
+                        object[,] array = {
+                            { "Idpoema", poema.Idpoema},
+                            { "Titulo",poema.Titulo },
+                            { "Verso", poema.Verso},
+                            { "Imagen", poema.Imagen}
+                        };
+                        command = DBCommun.crearParameters(command, array);
                     }
-                    command = DBCommun.crearCommand(formatoConsulta, con);
                     return command.ExecuteNonQuery();
                 }
             }
@@ -45,8 +52,8 @@ namespace DataAccessLogic
             {
                 using (var con = DBCommun.ConexionSQL())
                 {
-                    consulta = "select * from Poema where Bhabilitado='A'";
-                    command = DBCommun.crearCommand(consulta, con);
+                    consulta = "ListarPoemas";
+                    command = DBCommun.crearCommand(consulta, con, true);
                     IDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -123,6 +130,31 @@ namespace DataAccessLogic
                         //verificamos cuantos like tiene el poema actual
                         if (Convert.ToInt32(meGustaDAL.contarLike(reader.GetInt64(0))) >= 9)//si es mayor o igual a 9 entonces lo agregamos
                             lst.Add(new Poema(reader.GetInt64(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+                    }
+                    return lst;
+                }
+            }
+            catch (Exception e)
+            {
+                string d = e.Message;
+                return null;
+            }
+        }
+        //filtra los poemas 
+        public List<Poema> FiltrarPoemas(Poema poema)
+        {
+            try
+            {
+                using (var con = DBCommun.ConexionSQL())
+                {
+                    consulta = "FiltrarPoemas";
+                    command = DBCommun.crearCommand(consulta, con, true);
+                    object[,] parametros = { { "Titulo", poema.Titulo } };
+                    command = DBCommun.crearParameters(command,parametros);
+                    IDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        lst.Add(new Poema(reader.GetInt64(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
                     }
                     return lst;
                 }

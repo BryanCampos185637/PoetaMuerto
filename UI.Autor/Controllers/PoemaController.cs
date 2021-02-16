@@ -14,9 +14,21 @@ namespace UI.Autor.Controllers
             return View();
         }
         [HttpGet]
-        public JsonResult listar()
+        public JsonResult listar(Poema poema)
         {
-            return Json(bl.lstPoema(), JsonRequestBehavior.AllowGet);
+            if (poema.Titulo == null) 
+            {
+                var json = Json(bl.lstPoema(), JsonRequestBehavior.AllowGet);
+                json.MaxJsonLength = int.MaxValue;
+                return json;
+            }
+            else 
+            {
+                var json = Json(bl.FiltrarPoema(poema), JsonRequestBehavior.AllowGet);
+                json.MaxJsonLength = int.MaxValue;
+                return json;
+            }
+            
         }
         [HttpPost]
         public string guardar(Poema poema)

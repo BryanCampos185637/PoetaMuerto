@@ -4,6 +4,10 @@ namespace BussinesEntity
 {
     public class MeGusta
     {
+        public MeGusta()
+        {
+
+        }
         public MeGusta(Int64 id, Int64 poema, string ip)
         {
             Idmegusta = id;

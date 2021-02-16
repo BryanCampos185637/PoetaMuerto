@@ -34,10 +34,18 @@ function apoyarPoeta() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Ok, ir a PayPal!'
+        confirmButtonText: 'Ok, ir a PayPal!',
+        cancelButtonText:'Cancelar',
     }).then((result) => {
         if (result.isConfirmed) {
-            alert('OK');
+            //document.getElementById('botonPagarPaypal').click();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Muy pronto estara completa la función de apoyar.',
+                showConfirmButton: false,
+                timer: 2000
+            })
         }
     })
 }

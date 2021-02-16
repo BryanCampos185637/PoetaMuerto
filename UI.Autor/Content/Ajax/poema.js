@@ -1,9 +1,9 @@
 ﻿$(function () {
-    llamarTabla();
+    llamarTabla(undefined);
 })
 var vista = true;
-function llamarTabla() {
-    pintarTabla('/Poema/listar', ['No','titulo', 'verso'], ['Idpoema','Titulo','Verso'],
+function llamarTabla(url = '/Poema/listar') {
+    pintarTabla(url, ['No', 'titulo', 'verso'], ['Idpoema', 'Titulo', 'Verso'],
         'Idpoema', 'myTable', true, true);
 }
 function guardar() {
@@ -48,15 +48,22 @@ document.getElementById('btnFoto').onclick = function () {
     document.getElementById('txtFileFoto').click();
 }
 function cambiarVista() {
+    document.getElementById('Filtro').value = '';
     if (vista) {
         document.getElementById('divFormulario').style.display = 'block';
         document.getElementById('myTable').style.display = 'none';
+        document.getElementById('Filtro').style.display = 'none';
         vista = false;
         document.getElementById('btnCambiar').value = 'Mostrar tabla';
     } else {
         document.getElementById('divFormulario').style.display = 'none';
         document.getElementById('myTable').style.display = 'block';
+        document.getElementById('Filtro').style.display = 'block';
         document.getElementById('btnCambiar').value = 'Mostrar formulario';
         vista = true;
     }
+}
+function filtrar() {
+    var titulo = document.getElementById('txtFiltro').value;
+    llamarTabla('/Poema/listar?Titulo=' + titulo);
 }

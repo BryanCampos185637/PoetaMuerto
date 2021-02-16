@@ -1,7 +1,7 @@
 ﻿function pintarTabla(url, cabecera, propiedades, llavePrimaria, idDiv = 'myTable', eliminar = true, editar = true) {
     fetch(url).then(data => data.json()).then(data => {
         var totalColumnas = cabecera.length; var html = '';
-        html += '<table class="table table-bordered table-hover table-responsive">'
+        html += '<table class="table table-bordered table-hover table-responsive-sm">'
         html += '<thead class="thead-dark">'
         html += '<tr>'
         for (var i = 0; i < cabecera.length; i++) {

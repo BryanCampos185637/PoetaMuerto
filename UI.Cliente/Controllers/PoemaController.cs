@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using BussinesEntity;
 using BussinesLogic;
@@ -25,10 +24,12 @@ namespace UI.Cliente.Controllers
         [HttpGet]
         public JsonResult poemas()
         {
-            return Json(bl.lstPoema().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
+            var json = Json(bl.lstPoema().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
         }
         [HttpPost]
-        public string darMegusta(MeGusta meGusta)
+        public string addlike(MeGusta meGusta)
         {
             MeGustaBL bl = new MeGustaBL();
             meGusta.Ipcliente = Request.UserHostAddress;//capturamos la ip del cliente
@@ -110,7 +111,7 @@ namespace UI.Cliente.Controllers
             return pagar.Execute(aPIContext, ejecutaPago);
         }
         //crear metodo de pago con paypal
-        public ActionResult pagarConPaypal()
+        public ActionResult pagarConPaypal(decimal? dinero)
         {
             //obtenemos el contexto del clienteId y clienteSecret
             APIContext context = ConfiguracionPayPal.ObtenerAPIContext();
