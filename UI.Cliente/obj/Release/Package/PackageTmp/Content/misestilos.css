@@ -1,10 +1,11 @@
 ﻿
 /*fondo de la pantalla*/
-body{
-    background-color:#bdc3c7;
-   /* background-image:url(img/logo.svg);
+body {
+    background-color: #bdc3c7;
+    /* background-image:url(img/logo.svg);
     background-repeat:no-repeat;
     background-position:top;*/
+    /*font-family: serif;*/
 }
 /*sidevar*/
 .sidenav {

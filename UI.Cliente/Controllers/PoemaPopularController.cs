@@ -18,9 +18,18 @@ namespace UI.Cliente.Controllers
         [HttpGet]
         public JsonResult listarPoemasPopulares()
         {
-            var json = Json(poemaBL.poemasPopulares().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
-            json.MaxJsonLength = int.MaxValue;
-            return json;
+            try
+            {
+                var json = Json(poemaBL.poemasPopulares().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
+                json.MaxJsonLength = int.MaxValue;
+                return json;
+            }
+            catch (Exception)
+            {
+
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
+            
         }
     }
 }

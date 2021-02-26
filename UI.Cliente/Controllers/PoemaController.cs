@@ -24,9 +24,16 @@ namespace UI.Cliente.Controllers
         [HttpGet]
         public JsonResult poemas()
         {
-            var json = Json(bl.lstPoema().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
-            json.MaxJsonLength = int.MaxValue;
-            return json;
+            try
+            {
+                var json = Json(bl.lstPoema().OrderByDescending(p => p.Idpoema).ToList(), JsonRequestBehavior.AllowGet);
+                json.MaxJsonLength = int.MaxValue;
+                return json;
+            }
+            catch(Exception)
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
         }
         [HttpPost]
         public string addlike(MeGusta meGusta)

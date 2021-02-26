@@ -19,7 +19,9 @@ $(document).ready(function () {
         }
     });
 });
-
+function Apoyar() {
+    window.open('https://www.paypal.com/donate?hosted_button_id=REUYFHWBULQZL', 'Apoyar Poeta Muerto', 'width=120,heigth=300,scrollbars=NO');
+}
 function desaparecerCirculoCarga() {
     //desaparecer la carga
     var contenedor = document.getElementById('contenedor-carga');
@@ -38,14 +40,7 @@ function apoyarPoeta() {
         cancelButtonText:'Cancelar',
     }).then((result) => {
         if (result.isConfirmed) {
-            //document.getElementById('botonPagarPaypal').click();
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Muy pronto estara completa la función de apoyar.',
-                showConfirmButton: false,
-                timer: 2000
-            })
+            Apoyar();
         }
     })
 }

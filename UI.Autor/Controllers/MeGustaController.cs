@@ -18,7 +18,22 @@ namespace UI.Autor.Controllers
         [HttpGet]
         public JsonResult Listar()
         {
-            return Json(bl.listar(), JsonRequestBehavior.AllowGet);
+            var lst = bl.listar();
+            lst = lst.OrderByDescending(p => p.Idmegusta).ToList();
+            return Json(lst, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public string eliminarLike(int id)
+        {
+            try
+            {
+                var rpt = bl.eliminarLike(id);
+                return rpt.ToString();
+            }
+            catch(Exception e)
+            {
+                return "Error: " + e.Message;
+            }
         }
     }
 }

@@ -92,6 +92,10 @@
     <Content Include="Content\Ajax\poema.js" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.js" />
+    <Content Include="Content\img\autor.jpg" />
+    <Content Include="Content\img\carga.gif" />
+    <Content Include="Content\img\J.png" />
+    <Content Include="Content\img\logo.svg" />
     <Content Include="Content\jquery.min.js" />
     <Content Include="Content\limonte-sweetalert2\sweetalert2.min.css" />
     <Content Include="Content\limonte-sweetalert2\sweetalert2.min.js" />

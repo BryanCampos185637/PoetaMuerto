@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace DataAccessLogic
 {
@@ -11,12 +12,11 @@ namespace DataAccessLogic
         string consulta = "", formatoConsulta = "";
         SqlCommand command;
         List<Poema> lst= new List<Poema>();
-        //metodo para guardar la información
         public int guardar(Poema poema)
         {
             try
             {
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     //si el id viene en 0 es un agregar
                     if (poema.Idpoema == 0)
@@ -48,16 +48,22 @@ namespace DataAccessLogic
         //lista todos los poemas que esten habilitados
         public List<Poema> lstPoema()
         {
+            Poema poema;
             try
             {
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     consulta = "ListarPoemas";
                     command = DBCommun.crearCommand(consulta, con, true);
                     IDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        lst.Add(new Poema(reader.GetInt64(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+                        poema = new Poema();
+                        poema.Idpoema = reader.GetInt64(0);
+                        poema.Titulo = reader.GetString(1);
+                        poema.Verso = reader.GetString(2);
+                        poema.Imagen = reader.GetString(3)==null || reader.GetString(3).Length <= 100 ? "/Content/img/J.png" : reader.GetString(3);
+                        lst.Add(poema);
                     }
                     return lst;
                 }
@@ -74,7 +80,7 @@ namespace DataAccessLogic
             try
             {
                 Poema poema = new Poema();
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     consulta = "select * from Poema where Idpoema={0}";
                     formatoConsulta = string.Format(consulta, id);
@@ -85,7 +91,7 @@ namespace DataAccessLogic
                         poema.Idpoema = reader.GetInt64(0);
                         poema.Titulo = reader.GetString(1);
                         poema.Verso = reader.GetString(2);
-                        poema.Imagen = reader.GetString(3);
+                        poema.Imagen = reader.GetString(3) == null || reader.GetString(3).Length <= 100 ? "/Content/img/J.png" : reader.GetString(3);
                         poema.Bhabilitado = reader.GetString(4);
                     }
                     return poema;
@@ -101,7 +107,7 @@ namespace DataAccessLogic
         {
             try
             {
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     consulta = "update Poema set Bhabilitado='D' where Idpoema={0}";
                     formatoConsulta = string.Format(consulta, id);
@@ -120,7 +126,7 @@ namespace DataAccessLogic
             try
             {
                 MeGustaDAL meGustaDAL = new MeGustaDAL();
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     consulta = "select * from Poema where Bhabilitado='A'";
                     command = DBCommun.crearCommand(consulta, con);
@@ -128,8 +134,14 @@ namespace DataAccessLogic
                     while (reader.Read())//recorremos la lista
                     {
                         //verificamos cuantos like tiene el poema actual
-                        if (Convert.ToInt32(meGustaDAL.contarLike(reader.GetInt64(0))) >= 9)//si es mayor o igual a 9 entonces lo agregamos
-                            lst.Add(new Poema(reader.GetInt64(0), reader.GetString(1), reader.GetString(2), reader.GetString(3)));
+                        if (Convert.ToInt32(meGustaDAL.contarLike(reader.GetInt64(0))) >= 10)//si es mayor o igual a 10 entonces lo agregamos
+                        {
+                            lst.Add(new Poema(reader.GetInt64(0),
+                                reader.GetString(1),
+                                reader.GetString(2),
+                                reader.GetString(3).Length <= 100 ? "Content/img/J.png" : reader.GetString(3)
+                                ));
+                        }
                     }
                     return lst;
                 }
@@ -145,7 +157,7 @@ namespace DataAccessLogic
         {
             try
             {
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     consulta = "FiltrarPoemas";
                     command = DBCommun.crearCommand(consulta, con, true);

@@ -9,4 +9,3 @@ C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesEntity\bin\Debug\Bussin
 C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.csproj.CoreCompileInputs.cache
 C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.dll
 C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.pdb
-C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\BussinesEntity\obj\Debug\BussinesEntity.csprojAssemblyReference.cache

@@ -21,7 +21,7 @@
                 <li><a href="~/Poema/Index">Poemas</a></li>
                 <li><a href="~/PoemaPopular/Index">Poemas pupulares</a></li>
                 <li><a href="~/PoetaMuerto/Index">Acerca de mi</a></li>
-                <li><a href="~/PayPal/Index">Apoyar</a></li>
+                <li><a href="#" onclick="Apoyar()">Apoyar</a></li>
             </ul>
         </div>
     </nav>
@@ -36,10 +36,10 @@
                         <img src="~/Content/img/autor.jpg" class="circle" alt="autor" />
                     </a>
                     <a href="#">
-                        <span class="name white-text">Josue Cardona</span>
+                        <span class="name white-text">Josué Cardona</span>
                     </a>
                     <a href="#">
-                        <span class="email white-text">josuecardona07@hotmail.com</span>
+                        <span class="email white-text">josueag56@gmail.com</span>
                     </a>
                 </div>
             </li>
@@ -49,7 +49,7 @@
             <li><div class="divider"></div></li>
             <li><a class="item-menu white-text" href="~/PoetaMuerto/Index">Acerca de mi</a></li>
             <li><div class="divider"></div></li>
-            <li><a class="item-menu white-text" href="~/PayPal/Index">Apoyar</a></li>
+            <li><a class="item-menu white-text" href="#" onclick="Apoyar()">Apoyar</a></li>
         </ul>
     </div>
 
@@ -63,7 +63,7 @@
     <div style="display:none">
         @*@Html.ActionLink("boton", "pagarConPaypal", "Poema", new { area = "" }, new { @id="botonPagarPaypal" })*@
         <form method="post" action="~/Poema/pagarConPaypal">
-            <input type="text" name="dinero" id="dinero" value="0.23"/>
+            <input type="text" name="dinero" id="dinero" value="0.23" />
             <button type="submit" id="botonPagarPaypal"></button>
         </form>
     </div>
@@ -71,5 +71,6 @@
     <script src="~/Content/materialize/js/materialize.min.js"></script>
     <script src="~/Scripts/efectos.js"></script>
     <span id="ir-arriba"><i class="fas fa-arrow-up"></i></span>
+    <input value="@Url.Content("~")" type="hidden" id="hdfOculto" />
 </body>
 </html>

@@ -9,9 +9,9 @@ namespace DataAccessLogic
         #region crea y abre nuestra conexion a la base de datos
         private static string cadenaConexionLocal = "Data Source=.;Initial Catalog=PoetaMuerto; user=sa; password=triz7+10";
         private static string cadenaConexionHosting = "Data Source=SQL5102.site4now.net;Initial Catalog=DB_A6EEFE_PoetaMuerto;User Id=DB_A6EEFE_PoetaMuerto_admin;Password=Cardona07Aguilar";
-        public static SqlConnection ConexionSQL()
+        public static SqlConnection ConectarSQL()
         {
-            SqlConnection conexion = new SqlConnection(cadenaConexionLocal); //creamos la conexion
+            SqlConnection conexion = new SqlConnection(cadenaConexionHosting); //creamos la conexion
             conexion.Open();//abrimos la conexion
             return conexion;
         }

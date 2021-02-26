@@ -82,3 +82,7 @@ C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\obj\Release\UI.Clien
 C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\obj\Release\UI.Cliente.csproj.CopyComplete
 C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\obj\Release\UI.Cliente.dll
 C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\obj\Release\UI.Cliente.pdb
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\bin\Newtonsoft.Json.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\bin\PayPal.dll
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\bin\Newtonsoft.Json.xml
+C:\Users\Bryan J. Campos\Desktop\git\PoetaMuerto\UI.Cliente\bin\PayPal.xml

@@ -2,19 +2,32 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<link href="~/Content/limonte-sweetalert2/sweetalert2.min.css" rel="stylesheet" />
 <h2>Me gusta</h2>
 <div class="row" id="divtabla">
-    
-</div>
 
+</div>
+<script src="~/Content/jquery.min.js"></script>
 <script src="~/Content/Ajax/generic.js"></script>
+<script src="~/Content/limonte-sweetalert2/sweetalert2.min.js"></script>
 <script>
     window.onload = function () {
         llamarTabla();
     }
     function llamarTabla() {
         pintarTabla('/megusta/listar', ['ID', 'ID-POEMA', 'IP-CLIENTE'],
-            ['Idmegusta', 'Idpoema', 'Ipcliente'], 'Idmegusta', 'divtabla', true, true);
+            ['Idmegusta', 'Idpoema', 'Ipcliente'], 'Idmegusta', 'divtabla', true, false);
+    }
+    function eliminar(id) {
+        messegeConfirm(undefined, undefined, undefined, undefined, function () {
+            $.get('/megusta/eliminarLike?id=' + id, function (r) {
+                if (r == 1) {
+                    llamarTabla();
+                    messeges('success', 'Eliminado')
+                } else {
+                    messeges('error', r);
+                }
+            })
+        });
     }
 </script>

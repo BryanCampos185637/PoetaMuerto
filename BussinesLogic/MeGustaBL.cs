@@ -24,5 +24,9 @@ namespace BussinesLogic
         {
             return dal.listar();
         }
+        public int eliminarLike(int id)
+        {
+            return dal.eliminarLike(id);
+        }
     }
 }

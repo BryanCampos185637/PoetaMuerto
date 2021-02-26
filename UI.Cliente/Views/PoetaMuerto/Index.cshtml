@@ -1,11 +1,45 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Acerca de mí";
+    int fechaActual = DateTime.Now.Year;
+    int miEdad = fechaActual - 2001;
 }
+<style>
+    .AcercaDeMi {
+        border-radius: 30px;
+        box-shadow: 5px 5px 8px #2c3e50 !important;
+    }
+</style>
+<br />
+<div class="row">
+    <div class="col offset-l3 l6 s12 m12">
+        <div class="card" id="AcercaDeMi">
+            <div class="row">
+                <div class="col l12 s12 m12">
+                    <div class="card-title center">
+                        <h5><i>Acerca de mí</i></h5>
+                        <img class="card-img circle" src="~/Content/img/autor.jpg" />
+                    </div>
+                    <div class="card-content center">
+                        <i>
+                            <p>Mi nombre es Josué Daniel Cardona Aguilar, soy un joven de @miEdad años. </p>
+                            <p>
+                                Apasionado desde muy temprano a la poesía y escritura, desde el 2014 me interesé
+                                por escribir, por diversas situaciones las cuales pasé. Desde ese momento inició un
+                                pasión enorme por expresar todos los sentimientos en publicaciones. Escribía
+                                esporádicamente hasta el 2020 que lo empecé a tomar como algo más profundo y
+                                profesional, considerándome como un escritor y poeta amateur, decidido a
+                                crecer en la poesía, tomándola y apreciando los sentimientos que esto conlleva.
+                            </p>
+                            <p>A la fecha, mis trabajos los hago públicos en mis redes sociales. Y creciendo poco a poco para darme a conocer entre la cultura.</p>
 
-<h5>Acerca de mi</h5>
-
-
+                        </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     window.onload = function () {
         desaparecerCirculoCarga();

@@ -8,11 +8,21 @@ namespace DataAccessLogic
 {
     public class MeGustaDAL
     {
+        public int eliminarLike(int id)
+        {
+            using(var con = DBCommun.ConectarSQL())
+            {
+                string query = "delete from MeGusta where Idmegusta={0}";
+                query = string.Format(query, id);
+                var command = DBCommun.crearCommand(query, con, false);
+                return command.ExecuteNonQuery();
+            }
+        }
         //ver los like
         public List<MeGusta> listar()
         {
             List<MeGusta> lst = new List<MeGusta>();
-            using(var con = DBCommun.ConexionSQL())
+            using(var con = DBCommun.ConectarSQL())
             {
                 var query = "select * from MeGusta";
                 var command = DBCommun.crearCommand(query, con);
@@ -29,7 +39,7 @@ namespace DataAccessLogic
         {
             try
             {
-                using(var con = DBCommun.ConexionSQL())
+                using(var con = DBCommun.ConectarSQL())
                 {
                     string consulta = "select * from MeGusta where Idpoema={0}";
                     string query = string.Format(consulta, Idpoema);
@@ -51,7 +61,7 @@ namespace DataAccessLogic
         //metodo que verifica que el mismo cliente no de mas de un like
         public int verificarFuente(Int64 Idpoema, string Ipcliente)
         {
-            using (var con = DBCommun.ConexionSQL())
+            using (var con = DBCommun.ConectarSQL())
             {
                 string consulta = "select * from MeGusta where Idpoema={0} and Ipcliente='{1}'";
                 string query = string.Format(consulta, Idpoema, Ipcliente);
@@ -69,7 +79,7 @@ namespace DataAccessLogic
             try
             {
                 string query = "";
-                using (var con = DBCommun.ConexionSQL())
+                using (var con = DBCommun.ConectarSQL())
                 {
                     SqlCommand command = null;
                     //validamos si el cliente ya a dado like
@@ -78,7 +88,7 @@ namespace DataAccessLogic
                         //si es 0 entonces se agrega el like
                         string consulta = "GuardarMeGusta";
                         command = DBCommun.crearCommand(consulta, con, true);
-                        object[,] parametros= { { "Idpoema", meGusta.Idmegusta },{ "Ipcliente", meGusta.Ipcliente } };
+                        object[,] parametros= { { "Idpoema", meGusta.Idpoema },{ "Ipcliente", meGusta.Ipcliente } };
                         command = DBCommun.crearParameters(command, parametros);
                     }
                     else

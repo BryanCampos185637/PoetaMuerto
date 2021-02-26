@@ -1,8 +1,15 @@
 ﻿window.onload = function () {
     llamarPoemas();
+    //hacemos que desaparezca el efecto de carga
+    desaparecerCirculoCarga();
+}
+
+function get(id) {
+    return document.getElementById(id).value;
 }
 function llamarPoemas() {
-    fetch('/poema/poemas').then(data => data.json()).then(data => {
+    var urlAbsoluta = window.location.protocol + '//' + window.location.host + get('hdfOculto') + 'poema/poemas';
+    fetch(urlAbsoluta).then(data => data.json()).then(data => {
         var html = '';
         for (var i = 0; i < data.length; i++) {
             //verificamos si la imagenen no viene vacia
@@ -25,9 +32,9 @@ function llamarPoemas() {
                 </div>
                 <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i>${dataActual['Titulo']}</i><i class="material-icons right">close</i></span>
-                <i>${dataActual['Verso']}</i>
+                <p>${dataActual['Verso']}</p>
                 <div style="flex-wrap:wrap;">
-                <a href="/PayPal/Index" class="waves-effect waves-light btn"><i class="fab fa-paypal"></i> Apoyar</a>
+                <a href="#" onclick="Apoyar()" class="waves-effect waves-light btn"><i class="fab fa-paypal"></i> Apoyar</a>
                 <button id="${idGenerado}" class="waves-effect waves-light btn" onclick="addLike(${dataActual['Idpoema']})"></button>
                 </div>
                 </div>
@@ -41,30 +48,34 @@ function llamarPoemas() {
         //pintamos las cards
         document.getElementById('poemas').innerHTML = html;
     });
-    //hacemos que desaparezca el efecto de carga
-    desaparecerCirculoCarga();
 }
+
 function addLike(id) {
-    var obj = {
+    var urlAbsoluta = window.location.protocol + '//' + window.location.host + get('hdfOculto') + 'poema/addlike';
+    //objeto
+    var MeGusta = {
         Idpoema: id,
         Ipcliente: null
     }
-    fetch('/poema/darMegusta', {headers: {
-            'Content-Type': 'application/json'
+    //peticion
+    fetch(urlAbsoluta, {
+        headers: {
+            "Content-Type": "application/json"
         },
-        method: 'POST',
-        body: JSON.stringify(obj)
+        method: "POST",
+        body: JSON.stringify(MeGusta)
     }).then(res => res.text()).then(res => {
-        if (res == 'ok') {
+        if (res == "ok") {
             contarLikes(id);
         } else {
-            alert(res);
-            }
-        });
+            console.log('error: ' + res)
+        }
+    });
 }
 
 function contarLikes(id) {
-    fetch('/poema/contarLike?Idpoema=' + id).then(data => data.json()).then(data => {
+    var urlAbsoluta = window.location.protocol + '//' + window.location.host + get('hdfOculto') + 'poema/contarLike?Idpoema=' + id;
+    fetch(urlAbsoluta).then(data => data.json()).then(data => {
         var totalLike = data;
         var button = document.getElementById('Like' + id);
         button.innerHTML = '<i class="fas fa-thumbs-up"></i> ' + totalLike;
