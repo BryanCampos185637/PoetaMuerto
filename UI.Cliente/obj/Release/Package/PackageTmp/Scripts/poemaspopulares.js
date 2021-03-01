@@ -6,20 +6,14 @@ function llamarPoemas() {
         var html = '';
         if (data.length > 0) {
             for (var i = 0; i < data.length; i++) {
-                //verificamos si la imagenen no viene vacia
-                var dataActual = data[i]; var urlImagen = '';
-                if (dataActual['Imagen'] == null || dataActual['Imagen'] == '') {
-                    urlImagen = '/Content/img/J.png';
-                } else {
-                    urlImagen = dataActual['Imagen']
-                }
+                var dataActual = data[i];
                 //pintamos la card con sus respectivos datos
                 var idGenerado = 'Like' + dataActual['Idpoema'];
                 html += `
                 <div class="col s12 m6 l4">
                 <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator card-img" src="${urlImagen}">
+                <img class="activator card-img" src="${dataActual['Imagen']}" alt="${dataActual['Titulo']}" title="${dataActual['Titulo']}">
                 </div>
                 <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4"><i>${dataActual['Titulo']}</i><i class="material-icons right">more_vert</i></span>

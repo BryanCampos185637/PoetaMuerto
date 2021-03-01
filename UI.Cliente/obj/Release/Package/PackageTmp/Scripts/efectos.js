@@ -40,14 +40,7 @@ function apoyarPoeta() {
         cancelButtonText:'Cancelar',
     }).then((result) => {
         if (result.isConfirmed) {
-            //document.getElementById('botonPagarPaypal').click();
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Muy pronto estara completa la función de apoyar.',
-                showConfirmButton: false,
-                timer: 2000
-            })
+            Apoyar();
         }
     })
 }

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Poemas", "Index", "Poema", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Me gusta", "Index", "Megusta", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>Desarrollado por SpartanDev - &copy; @DateTime.Now.Year -</p>
+        </footer>
+    </div>
+    <script src="~/Content/bootstrap.min.js"></script>
+</body>
+</html>
